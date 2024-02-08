@@ -59,12 +59,15 @@ h2{
     font-size: 18px;
     margin-bottom: 16px;
     margin-top: 26px;
+    margin-left: 10px;
 }
 
-.discreption__PROMO{
+.discreption__section{
     font-size: 14px;
     margin-top: 0;
     margin-bottom: 1rem;
+    margin-left: 10px;
+    color: var(--tg-theme-hint-color);
 }
 
 .category-element {
@@ -75,10 +78,9 @@ h2{
 .position {
     box-sizing: border-box;
     width: 50%;
-    white-space: nowrap;
-    display: flex;   
+    white-space: nowrap; 
     flex-wrap: nowrap;
-    padding: 15px;
+    padding: 10px;
 }
 
 .card-product {
@@ -87,7 +89,7 @@ h2{
     border-bottom: 2px solid var(--tg-theme-bg-color);
     border-radius: 8px;
     transition: all ease 0.2s;
-    
+    padding-bottom: 10px;
 }
 
 .card-product picture img {
@@ -123,11 +125,6 @@ h2{
     border: none;
     border-radius: 8px;
     font-size: 12px;
-}
-
-.description__FOOD {
-    color: var(--tg-theme-hint-color);
-    font-size: 14px;
 }
 
 p {
@@ -174,4 +171,18 @@ p {
     -webkit-appearance: none;
 }
 
+.g-3, .gy-3 {
+    --bs-gutter-y: 1rem;
+}
+
+.g-3, .gx-3 {
+    --bs-gutter-x: 1rem;
+}
+
+.category-element>* {
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-top: var(--bs-gutter-y);
+}
 /*  */

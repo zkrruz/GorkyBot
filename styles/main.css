@@ -55,7 +55,7 @@ hr {
 }
 
 h2{
-    background: var(--tg-theme-hint-color);
+    color: var(--tg-theme-text-color);
     font-size: 18px;
     margin-bottom: 16px;
     margin-top: 26px;

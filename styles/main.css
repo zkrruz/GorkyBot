@@ -16,7 +16,7 @@ body {
 nav {
     background-color: var(--tg-theme-bg-color);
     color: var(--tg-theme-text-color);
-    padding: 10px;
+    padding: 0px;
 }
 
 .main-gallery {
@@ -50,6 +50,7 @@ nav {
 }
 
 hr {
+    margin-top: 0;
     height: 0.5px;
     opacity: 0.13;
 }
@@ -190,10 +191,18 @@ p {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch; /* Для поддержки сенсорных устройств */
-    white-space: nowrap; /* Предотвращает перенос элементов списка на новую строку */
+    -webkit-overflow-scrolling: touch; 
+    white-space: nowrap; /
 }
 
 .item-category {
     scroll-snap-align: start;
 }
+
+ul {
+    margin: 0;
+}
+
+.category::-webkit-scrollbar {
+    display: none;
+  }

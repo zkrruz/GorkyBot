@@ -21,11 +21,11 @@ nav {
 
 .main-gallery {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .slider__main-gallery {
-    width: 80%; /* Adjust the width as needed */
+    width: 100%; /* Adjust the width as needed */
 }
 
 .category {
@@ -183,6 +183,17 @@ p {
     max-width: 100%;
     padding-right: calc(var(--bs-gutter-x) * .5);
     padding-left: calc(var(--bs-gutter-x) * .5);
-    margin-top: var(--bs-gutter-y);
+    /* margin-top: var(--bs-gutter-y); */
 }
-/*  */
+
+.category {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* Для поддержки сенсорных устройств */
+    white-space: nowrap; /* Предотвращает перенос элементов списка на новую строку */
+}
+
+.item-category {
+    scroll-snap-align: start;
+}

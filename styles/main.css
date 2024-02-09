@@ -47,6 +47,7 @@ nav {
     text-decoration: none;
     color: var(--tg-theme-text-color);
     font-weight: bold;
+    font-size: 18px;
 }
 
 hr {

@@ -4,29 +4,55 @@ tg.MainButton.text = "КОРЗИНА";
 tg.MainButton.isVisible = true;
 tg.MainButton.show()
 
-// Ждем, пока загрузится весь HTML-документ
 document.addEventListener('DOMContentLoaded', function() {
-    // Находим все кнопки с классом "listAddToCart"
     const addToCartButtons = document.querySelectorAll('.listAddToCart');
-    
-    // Для каждой кнопки добавляем обработчик события "click"
+
+    const priceText = addToCartButtons[0].innerText.replace('₽', ''); 
+    const price = parseInt(priceText)
+
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Создаем элемент, соответствующий вашему блоку
+            // Сохраняем ссылку на исходную кнопку
+            const originalButton = this;
+
             const btnEnable = document.createElement('div');
             btnEnable.classList.add('btnEnable');
             btnEnable.innerHTML = `
                 <div class="btn-space position-absolute bottom-0">
                     <div data-cart="136668" class="groupBtn">
                         <button class="listControl" data-action="minus">-</button>
-                        <input type="text" readonly value="1">
+                        <input class="listInput" type="text" readonly value="1">
                         <button class="listControl" data-action="plus">+</button>
                     </div>
                 </div>
             `;
-            
-            // Заменяем кнопку на созданный блок
+                    
             button.parentNode.replaceChild(btnEnable, button);
+            const groupBtnMinus = btnEnable.querySelectorAll(".listControl");
+
+            groupBtnMinus.forEach(button => {
+                button.addEventListener('click', function() {
+                    const parent = this.parentElement;
+                    const input = parent.querySelector('.listInput');
+                    let value = parseInt(input.value);
+                    let total = 0;
+                    if (this.dataset.action === 'plus') {
+                        value += 1;
+                        total += price
+                        tg.MainButton.text = `КОРЗИНА ${total}`
+                    } 
+                    else if (this.dataset.action === 'minus' && value > 1) {
+                        value -= 1;
+                        total -= price
+                        tg.MainButton.text = `КОРЗИНА ${total}`
+                    }
+                    else {
+                        // Восстанавливаем исходную кнопку
+                        parent.parentNode.replaceChild(originalButton, parent);
+                    }
+                    input.value = value;
+                })
+            });
         });
     });
 });

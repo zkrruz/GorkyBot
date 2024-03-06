@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const parent = this.parentElement;
                     const input = parent.querySelector('.listInput');
                     let value = parseInt(input.value);
-                    value = 1;
+                    input.value = 1;
                     if (this.dataset.action === 'plus') {
                         value += 1; 
                         total += price;

@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             total -= price;
                             tg.MainButton.text = `КОРЗИНА ${total}`;
                         } else {
+                            total = 0;
                             tg.MainButton.text = "КОРЗИНА";
                         }
                     }

@@ -52,8 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         } else {
                             // Возвращаем исходную кнопку
                             parent.parentNode.replaceChild(originalButton, parent);
-                            tg.MainButton.text = "КОРЗИНА";
-                            return; // Добавим return, чтобы прервать выполнение этой функции
                         }
                     }
                     input.value = value;

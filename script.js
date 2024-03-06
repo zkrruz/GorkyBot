@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="btn-space position-absolute bottom-0">
                     <div data-cart="136668" class="groupBtn">
                         <button class="listControl" data-action="minus">-</button>
-                        <input class="listInput" type="text" readonly value="0">
+                        <input class="listInput" type="text" readonly>
                         <button class="listControl" data-action="plus">+</button>
                     </div>
                 </div>

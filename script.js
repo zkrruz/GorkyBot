@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const price = parseInt(priceText);
     let total = 0; // перемещение переменной total вне цикла событий
     total += price;
+    tg.MainButton.text = `КОРЗИНА ${total}`;
 
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function() {

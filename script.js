@@ -31,12 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
              
+            button.parentNode.replaceChild(btnEnable, button);
             const parent = this.parentElement;
             const input = parent.querySelector('.listInput');
             let value = parseInt(input.value);
             value = 1;
-            button.parentNode.replaceChild(btnEnable, button);
-            
             // Обработчики событий для кнопок "плюс" и "минус"
             const groupBtnMinus = btnEnable.querySelectorAll(".listControl");
             groupBtnMinus.forEach(button => {

@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         total += price;
                     } 
                     else if (this.dataset.action === 'minus') {
-                        if (value > 1) {
+                        if (value >= 1) {
                             value -= 1;
                             total -= price;
                         } else {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     
                     input.value = value;
-                    if (total > 1) {
+                    if (total != 0) {
                         tg.MainButton.text = `КОРЗИНА ${total}`;
                     } else {
                         tg.MainButton.text = "КОРЗИНА";

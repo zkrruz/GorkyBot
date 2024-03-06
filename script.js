@@ -46,10 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         total += price;
                     } 
                     else if (this.dataset.action === 'minus') {
-                        if (value >= 1) {
+                        if (value >= 2) {
                             value -= 1;
                             total -= price;
-                        } else if (value === 0) {
+                        } else{
                             parent.parentNode.replaceChild(originalButton, parent);
                         }
                     }

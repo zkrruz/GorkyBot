@@ -38,13 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     let value = parseInt(input.value);
 
                     if (this.dataset.action === 'plus') {
-                        value += 1; // переместите это увеличение после проверок
-                        if (total === 0) {
+                        if (total == 0) {
                             tg.MainButton.text = "КОРЗИНА";
                         } else {
                             total += price;
                             tg.MainButton.text = `КОРЗИНА ${total}`;
                         }
+                        value += 1; 
                     } 
                     else if (this.dataset.action === 'minus' && value > 1) {
                         value -= 1;

@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="btn-space position-absolute bottom-0">
                     <div data-cart="136668" class="groupBtn">
                         <button class="listControl" data-action="minus">-</button>
-                        <input class="listInput" type="text" readonly value="1">
+                        <input class="listInput" type="text" readonly value="0">
                         <button class="listControl" data-action="plus">+</button>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         if (value >= 1) {
                             value -= 1;
                             total -= price;
-                        } else if(value > 2){
+                        } else{
                             parent.parentNode.replaceChild(originalButton, parent);
                         }
                     }

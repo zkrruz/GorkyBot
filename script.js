@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         if (value >= 1) {
                             value -= 1;
                             total -= price;
-                        } else if (value == 0) {
+                        } else if (value > 1) {
                             parent.parentNode.replaceChild(originalButton, parent);
                         }
                     }

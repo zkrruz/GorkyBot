@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         tg.MainButton.text = `КОРЗИНА ${total}`;
                     } 
                     else if (this.dataset.action === 'minus' && value > 1) {
-                        if (total != 0) {
+                        if (value != 0) {
                             total -= price;
                             tg.MainButton.text = `КОРЗИНА ${total}`;
                         } else {

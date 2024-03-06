@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function() {
-            total += price; // увеличение total при нажатии на кнопку "добавить в корзину"
+            total += price;
             tg.MainButton.text = `КОРЗИНА ${total}`;
 
             // Сохраняем ссылку на исходную кнопку
@@ -25,21 +25,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="btn-space position-absolute bottom-0">
                     <div data-cart="136668" class="groupBtn">
                         <button class="listControl" data-action="minus">-</button>
-                        <input class="listInput" type="text" readonly value="1">
+                        <input class="listInput" type="text" readonly value="0">
                         <button class="listControl" data-action="plus">+</button>
                     </div>
                 </div>
             `;
-                    
+             
+            const parent = this.parentElement;
+            const input = parent.querySelector('.listInput');
+            let value = parseInt(input.value);
+            value = 1;
             button.parentNode.replaceChild(btnEnable, button);
-
+            
             // Обработчики событий для кнопок "плюс" и "минус"
             const groupBtnMinus = btnEnable.querySelectorAll(".listControl");
             groupBtnMinus.forEach(button => {
                 button.addEventListener('click', function() {
-                    const parent = this.parentElement;
-                    const input = parent.querySelector('.listInput');
-                    let value = parseInt(input.value);
 
                     if (this.dataset.action === 'plus') {
                         value += 1; 

@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const addToCartButtons = document.querySelectorAll('.listAddToCart');
 
     const priceText = addToCartButtons[0].innerText.replace('₽', ''); 
-    const price = parseInt(priceText)
+    const price = parseInt(priceText);
+    let total = 0; // перемещение переменной total вне цикла событий
 
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -35,16 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     const parent = this.parentElement;
                     const input = parent.querySelector('.listInput');
                     let value = parseInt(input.value);
-                    let total = 0;
+
                     if (this.dataset.action === 'plus') {
                         value += 1;
-                        total += price
-                        tg.MainButton.text = `КОРЗИНА ${total}`
+                        total += price; // увеличиваем total при нажатии на кнопку plus
+                        tg.MainButton.text = `КОРЗИНА ${total}`;
                     } 
                     else if (this.dataset.action === 'minus' && value > 1) {
                         value -= 1;
-                        total -= price
-                        tg.MainButton.text = `КОРЗИНА ${total}`
+                        total -= price; // уменьшаем total при нажатии на кнопку minus
+                        tg.MainButton.text = `КОРЗИНА ${total}`;
                     }
                     else {
                         // Восстанавливаем исходную кнопку

@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         } else {
                             // Возвращаем исходную кнопку
                             parent.parentNode.replaceChild(originalButton, parent);
-                            total = 0;
+                            tg.MainButton.text = "КОРЗИНА";
                             return; // Добавим return, чтобы прервать выполнение этой функции
                         }
                     }

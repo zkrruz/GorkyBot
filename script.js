@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="btn-space position-absolute bottom-0">
                     <div data-cart="136668" class="groupBtn">
                         <button class="listControl" data-action="minus">-</button>
-                        <input class="listInput" type="text" readonly>
+                        <input class="listInput" type="text" readonly value="1">
                         <button class="listControl" data-action="plus">+</button>
                     </div>
                 </div>
@@ -40,13 +40,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     const parent = this.parentElement;
                     const input = parent.querySelector('.listInput');
                     let value = parseInt(input.value);
-                    input.value = 1;
+
                     if (this.dataset.action === 'plus') {
                         value += 1; 
                         total += price;
                     } 
                     else if (this.dataset.action === 'minus') {
-                        if (value > 1) {
+                        if (value >= 1 && value != 0) {
                             value -= 1;
                             total -= price;
                         } else{

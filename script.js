@@ -1,9 +1,3 @@
-let tg = window.Telegram.WebApp;
-
-tg.MainButton.text = "КОРЗИНА";
-tg.MainButton.isVisible = true;
-tg.MainButton.show();
-
 document.addEventListener('DOMContentLoaded', function() {
     const addToCartButtons = document.querySelectorAll('.listAddToCart');
 
@@ -45,9 +39,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         value += 1; 
                         total += price;
                     } 
-                    else if (this.dataset.action === 'minus' && value > 1) {
-                        value -= 1;
-                        total -= price;
+                    else if (this.dataset.action === 'minus') {
+                        if (value > 1) {
+                            value -= 1;
+                            total -= price;
+                        } else {
+                            // Если значение уже 1, ничего не делаем
+                            parent.parentNode.replaceChild(originalButton, parent);
+                        }
                     }
                     
                     input.value = value;
@@ -55,11 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         tg.MainButton.text = `КОРЗИНА ${total}`;
                     } else {
                         tg.MainButton.text = "КОРЗИНА";
-                    }
-
-                    if (value == 1) {
-                        // Восстанавливаем исходную кнопку
-                        parent.parentNode.replaceChild(originalButton, parent);
                     }
                 })
             });

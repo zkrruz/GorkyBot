@@ -1,3 +1,9 @@
+let tg = window.Telegram.WebApp;
+
+tg.MainButton.text = "КОРЗИНА";
+tg.MainButton.isVisible = true;
+tg.MainButton.show();
+
 document.addEventListener('DOMContentLoaded', function() {
     const addToCartButtons = document.querySelectorAll('.listAddToCart');
 

@@ -36,21 +36,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     const parent = this.parentElement;
                     const input = parent.querySelector('.listInput');
                     let value = parseInt(input.value);
-                    value += 1;
 
                     if (this.dataset.action === 'plus') {
-                        value += 1;
-                        total += price; // увеличиваем total при нажатии на кнопку plus
-                        tg.MainButton.text = `КОРЗИНА ${total}`;
+                        value += 1; // переместите это увеличение после проверок
+                        if (total === 0) {
+                            tg.MainButton.text = "КОРЗИНА";
+                        } else {
+                            total += price;
+                            tg.MainButton.text = `КОРЗИНА ${total}`;
+                        }
                     } 
                     else if (this.dataset.action === 'minus' && value > 1) {
                         value -= 1;
                         if (total != 0) {
-                            total -= price; // уменьшаем total при нажатии на кнопку minus
+                            total -= price;
                             tg.MainButton.text = `КОРЗИНА ${total}`;
-                        }
-                        else {
-                            tg.MainButton.text = `КОРЗИНА`;
+                        } else {
+                            tg.MainButton.text = "КОРЗИНА";
                         }
                     }
                     else {

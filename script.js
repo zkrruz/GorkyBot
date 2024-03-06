@@ -2,7 +2,7 @@ let tg = window.Telegram.WebApp;
 
 tg.MainButton.text = "КОРЗИНА";
 tg.MainButton.isVisible = true;
-tg.MainButton.show()
+tg.MainButton.show();
 
 document.addEventListener('DOMContentLoaded', function() {
     const addToCartButtons = document.querySelectorAll('.listAddToCart');
@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
                     
             button.parentNode.replaceChild(btnEnable, button);
+
+            // Обработчики событий для кнопок "плюс" и "минус"
             const groupBtnMinus = btnEnable.querySelectorAll(".listControl");
             groupBtnMinus.forEach(button => {
                 button.addEventListener('click', function() {
@@ -46,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     } 
                     else if (this.dataset.action === 'minus' && value > 1) {
                         value -= 1;
-                        if (total > 1) {
+                        if (total != 0) {
                             total -= price;
                             tg.MainButton.text = `КОРЗИНА ${total}`;
                         } else {

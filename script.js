@@ -46,14 +46,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         total += price;
                     } 
                     else if (this.dataset.action === 'minus') {
-                        if (value != 0) {
+                        if (value >= 1) {
                             value -= 1;
                             total -= price;
-                        } else {
+                        } else if (value == 0) {
                             parent.parentNode.replaceChild(originalButton, parent);
                         }
                     }
-                    
                     input.value = value;
                     if (total != 0) {
                         tg.MainButton.text = `КОРЗИНА ${total}`;

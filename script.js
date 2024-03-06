@@ -46,11 +46,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         total += price;
                     } 
                     else if (this.dataset.action === 'minus') {
-                        if (value >= 1 && value != 0) {
+                        if (value > 1) {
                             value -= 1;
                             total -= price;
-                        } else{
+                        } else {
+                            // Возвращаем исходную кнопку
                             parent.parentNode.replaceChild(originalButton, parent);
+                            return; // Добавим return, чтобы прервать выполнение этой функции
                         }
                     }
                     input.value = value;

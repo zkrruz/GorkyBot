@@ -44,23 +44,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (this.dataset.action === 'plus') {
                         value += 1; 
                         total += price;
-                        tg.MainButton.text = `КОРЗИНА ${total}`;
                     } 
                     else if (this.dataset.action === 'minus' && value > 1) {
-                        if (value > 1) {
-                            total -= price;
-                            tg.MainButton.text = `КОРЗИНА ${total}`;
-                        } else {
-                            total = 0;
-                            tg.MainButton.text = "КОРЗИНА";
-                        }
                         value -= 1;
+                        total -= price;
                     }
-                    else {
+                    
+                    input.value = value;
+                    if (total != 0) {
+                        tg.MainButton.text = `КОРЗИНА ${total}`;
+                    } else {
+                        tg.MainButton.text = "КОРЗИНА";
+                    }
+
+                    if (value === 0) {
                         // Восстанавливаем исходную кнопку
                         parent.parentNode.replaceChild(originalButton, parent);
                     }
-                    input.value = value;
                 })
             });
         });

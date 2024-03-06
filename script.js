@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     } 
                     else if (this.dataset.action === 'minus' && value > 1) {
                         value -= 1;
-                        if (total > 1) {
+                        if (total != 0) {
                             total -= price;
                             tg.MainButton.text = `КОРЗИНА ${total}`;
                         } else {
@@ -56,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     else {
                         // Восстанавливаем исходную кнопку
                         parent.parentNode.replaceChild(originalButton, parent);
+                        tg.MainButton.text = "КОРЗИНА";
+                        total = 0;
                     }
                     input.value = value;
                 })

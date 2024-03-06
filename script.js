@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const parent = this.parentElement;
                     const input = parent.querySelector('.listInput');
                     let value = parseInt(input.value);
+                    value += 1;
 
                     if (this.dataset.action === 'plus') {
                         value += 1;
@@ -44,8 +45,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     } 
                     else if (this.dataset.action === 'minus' && value > 1) {
                         value -= 1;
-                        total -= price; // уменьшаем total при нажатии на кнопку minus
-                        tg.MainButton.text = `КОРЗИНА ${total}`;
+                        if (total != 0) {
+                            total -= price; // уменьшаем total при нажатии на кнопку minus
+                            tg.MainButton.text = `КОРЗИНА ${total}`;
+                        }
+                        else {
+                            tg.MainButton.text = `КОРЗИНА`;
+                        }
                     }
                     else {
                         // Восстанавливаем исходную кнопку

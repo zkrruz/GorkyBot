@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const priceText = addToCartButtons[0].innerText.replace('₽', ''); 
     const price = parseInt(priceText);
     let total = 0; // перемещение переменной total вне цикла событий
+    total += price;
 
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -30,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     
             button.parentNode.replaceChild(btnEnable, button);
             const groupBtnMinus = btnEnable.querySelectorAll(".listControl");
-            total += price;
             groupBtnMinus.forEach(button => {
                 button.addEventListener('click', function() {
                     const parent = this.parentElement;
@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     let value = parseInt(input.value);
 
                     if (this.dataset.action === 'plus') {
+                        value += 1; 
                         total += price;
                         tg.MainButton.text = `КОРЗИНА ${total}`;
-                        value += 1; 
                     } 
                     else if (this.dataset.action === 'minus' && value > 1) {
                         value -= 1;

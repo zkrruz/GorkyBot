@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
             button.parentNode.replaceChild(btnEnable, button);
             const groupBtnMinus = btnEnable.querySelectorAll(".listControl");
-
+            total += price;
             groupBtnMinus.forEach(button => {
                 button.addEventListener('click', function() {
                     const parent = this.parentElement;
@@ -38,12 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     let value = parseInt(input.value);
 
                     if (this.dataset.action === 'plus') {
-                        if (total == 0) {
-                            tg.MainButton.text = "КОРЗИНА";
-                        } else {
-                            total += price;
-                            tg.MainButton.text = `КОРЗИНА ${total}`;
-                        }
+                        total += price;
+                        tg.MainButton.text = `КОРЗИНА ${total}`;
                         value += 1; 
                     } 
                     else if (this.dataset.action === 'minus' && value > 1) {

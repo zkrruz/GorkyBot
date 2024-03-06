@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         total += price;
                     } 
                     else if (this.dataset.action === 'minus') {
-                        if (value >= 1) {
+                        if (value != 0) {
                             value -= 1;
                             total -= price;
                         } else {

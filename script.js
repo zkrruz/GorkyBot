@@ -10,11 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const priceText = addToCartButtons[0].innerText.replace('₽', ''); 
     const price = parseInt(priceText);
     let total = 0; // перемещение переменной total вне цикла событий
-    total += price;
-    tg.MainButton.text = `КОРЗИНА ${total}`;
 
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function() {
+            total += price; // увеличение total при нажатии на кнопку "добавить в корзину"
+            tg.MainButton.text = `КОРЗИНА ${total}`;
+
             // Сохраняем ссылку на исходную кнопку
             const originalButton = this;
 

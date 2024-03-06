@@ -50,13 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
                             value -= 1;
                             total -= price;
                         } else {
-                            // Если значение уже 1, ничего не делаем
                             parent.parentNode.replaceChild(originalButton, parent);
                         }
                     }
                     
                     input.value = value;
-                    if (total != 0) {
+                    if (total > 1) {
                         tg.MainButton.text = `КОРЗИНА ${total}`;
                     } else {
                         tg.MainButton.text = "КОРЗИНА";

@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         tg.MainButton.text = "КОРЗИНА";
                     }
 
-                    if (value === 0) {
+                    if (value == 0) {
                         // Восстанавливаем исходную кнопку
                         parent.parentNode.replaceChild(originalButton, parent);
                     }
